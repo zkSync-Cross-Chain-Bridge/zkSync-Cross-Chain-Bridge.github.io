@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zkSync Cross Chain Bridge – Fast &amp; Secure Transfers</title>
+<meta name="description" content="zksync cross chain bridge lets you move assets between Ethereum and zkSync securely and fast. Learn fees, steps, and start bridging today with low costs.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://zksync-cross-chain-bridge.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zkSync Cross Chain Bridge – Fast &amp; Secure Transfers">
+<meta property="og:description" content="zksync cross chain bridge lets you move assets between Ethereum and zkSync securely and fast. Learn fees, steps, and start bridging today with low costs.">
+<meta property="og:url" content="https://zksync-cross-chain-bridge.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="zkSync Cross Chain Bridge – Fast &amp; Secure Transfers">
+<meta name="twitter:description" content="zksync cross chain bridge lets you move assets between Ethereum and zkSync securely and fast. Learn fees, steps, and start bridging today with low costs.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "zkSync Cross Chain Bridge – Fast & Secure Transfers", "description": "zksync cross chain bridge lets you move assets between Ethereum and zkSync securely and fast. Learn fees, steps, and start bridging today with low costs.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://zksync-cross-chain-bridge.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zksync-cross-chain-bridge.github.io"}, {"@type": "ListItem", "position": 2, "name": "zkSync Cross Chain Bridge – Fast & Secure Transfers", "item": "https://zksync-cross-chain-bridge.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the zksync cross chain bridge used for?", "acceptedAnswer": {"@type": "Answer", "text": "The zksync cross chain bridge is used to transfer assets like ETH and supported ERC‑20 tokens between Ethereum mainnet and zkSync Era. It allows users to access lower fees and faster transactions on Layer 2 while keeping security anchored to Ethereum."}}, {"@type": "Question", "name": "How long does a zksync cross chain bridge deposit take?", "acceptedAnswer": {"@type": "Answer", "text": "A zksync cross chain bridge deposit typically takes 5–15 minutes, depending on Ethereum congestion and gas price selection. Once the mainnet transaction confirms, zkSync credits the Layer 2 balance shortly after proof recognition."}}, {"@type": "Question", "name": "Are zksync cross chain bridge withdrawals slower?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, zksync cross chain bridge withdrawals can be slower because they require proof verification on Ethereum before funds are released. Timing varies with network conditions and whether you use the official or a liquidity-based bridge."}}, {"@type": "Question", "name": "Is the zksync cross chain bridge safe?", "acceptedAnswer": {"@type": "Answer", "text": "The zksync cross chain bridge relies on non-custodial smart contracts and zero-knowledge proofs for security. However, smart contract vulnerabilities and phishing risks remain possible, so users should verify URLs and test with small amounts first."}}, {"@type": "Question", "name": "Which wallets support zksync cross chain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Most Ethereum-compatible wallets, including MetaMask, support the zksync cross chain bridge when configured for zkSync Era. Hardware wallets can add an extra security layer for signing transactions."}}, {"@type": "Question", "name": "Can I bridge USDC using the zksync cross chain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can bridge USDC and other supported ERC‑20 tokens if they are enabled in the bridge interface. Always confirm token compatibility before initiating a transfer."}}, {"@type": "Question", "name": "What are the main risks of using a cross-chain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Main risks include smart contract bugs, liquidity shortfalls in third-party bridges, phishing websites, and user error. Testing small transfers and using official documentation reduces exposure."}}, {"@type": "Question", "name": "Do I pay gas fees twice when using zksync cross chain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you generally pay Ethereum gas for deposits and again for withdrawals or claims. Once funds are on zkSync, transaction fees are typically much lower than on mainnet."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE LIGHT — Two-Column Editorial
+   Template ID: base-light
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #fafaf9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-subtle: #f5f5f4;
+  --accent: #111111;
+  --accent-hover: #333333;
+  --accent-dim: rgba(0,0,0,0.04);
+  --text-primary: #111111;
+  --text-secondary: #6b7280;
+  --text-muted: #a1a1aa;
+  --border: #e5e5e5;
+  --border-hover: #d4d4d4;
+  --cta-bg: #4ade80;
+  --cta-text: #000;
+  --cta-glow: rgba(74,222,128,0.25);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-head: 'Outfit', -apple-system, sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+body {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.75;
+  color: var(--text-primary); background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0; width: 0%; height: 2px;
+  background: var(--accent); z-index: 10000;
+  ; transition: width 0.1s linear;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+.content-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+/* ═══════ PILL NAV ═══════ */
+.pill-nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 9000;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 5px 6px;
+  display: flex; align-items: center; gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto; scrollbar-width: none;
+}
+.pill-nav::-webkit-scrollbar { display: none; }
+.pill-nav.visible { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.pill-nav a {
+  font-family: var(--font-head); font-size: 0.8125rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 7px 14px; border-radius: 50px;
+  transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+.pill-nav a:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+.pill-nav a.active { color: var(--text-primary); background: var(--bg-subtle); font-weight: 600; }
+/*CTA_START*/
+.pill-nav .pill-cta {
+  font-family: var(--font-head); font-size: 0.8125rem; font-weight: 600;
+  color: var(--cta-text); background: var(--cta-bg);
+  padding: 7px 18px; border-radius: 50px; text-decoration: none;
+  margin-left: 4px; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s;
+}
+.pill-nav .pill-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--cta-glow); }
+/*CTA_END*/
+
+/* ═══════ HERO ═══════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; z-index: 1; padding: 100px 32px;
+}
+.hero-inner { max-width: 860px; position: relative; }
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800; line-height: 1.02; letter-spacing: -0.045em;
+  margin-bottom: 28px;
+}
+.hero-subtitle {
+  font-size: 1.1875rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 48px; line-height: 1.8;
+}
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 40px; background: var(--cta-bg); color: var(--cta-text);
+  font-family: var(--font-head); font-size: 1.0625rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px var(--cta-glow);
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--cta-glow); }
+.hero-cta svg { width: 18px; height: 18px; }
+/*CTA_END*/
+.hero-scroll-hint {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  color: var(--text-muted); font-size: 0.7rem; font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: hintPulse 2.5s ease-in-out infinite;
+}
+.hero-scroll-hint span { width: 1px; height: 28px; background: linear-gradient(to bottom, var(--text-muted), transparent); }
+@keyframes hintPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+/* ═══════ CONTENT — TWO COLUMN ═══════ */
+.content-area { padding: 40px 0 80px; position: relative; z-index: 1; }
+
+.content-area section {
+  display: grid; grid-template-columns: 5fr 7fr;
+  column-gap: 64px; padding: 72px 0;
+  border-top: 1px solid var(--border); align-items: start;
+}
+.content-area section:first-of-type { border-top: none; }
+.content-area section > * { grid-column: 2; }
+.content-area section > .section-label {
+  grid-column: 1; grid-row: 1;
+  font-family: var(--font-mono); font-size: 0.8125rem;
+  color: var(--text-muted); margin-bottom: 8px;
+}
+.content-area section > h2 {
+  grid-column: 1; grid-row: 2 / span 50;
+  position: sticky; top: 80px; align-self: start;
+  font-family: var(--font-head);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.035em;
+  margin: 0; padding: 0; border: none;
+  scroll-margin-top: 80px;
+}
+
+.content-area h3 {
+  font-family: var(--font-head); font-size: 1.25rem; font-weight: 700;
+  color: var(--text-primary); margin: 32px 0 12px; scroll-margin-top: 80px;
+}
+.content-area h3:first-child { margin-top: 0; }
+.content-area h4 { font-family: var(--font-head); font-size: 1.0625rem; font-weight: 600; margin: 24px 0 8px; }
+.content-area p { color: var(--text-secondary); margin-bottom: 18px; line-height: 1.85; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text-primary); font-weight: 600; }
+
+.content-area .intro { display: block; padding: 0 0 48px; border-top: none; }
+.content-area .intro p { font-size: 1.125rem; color: var(--text-secondary); max-width: 700px; }
+
+.capsule { background: var(--accent-dim); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-md); padding: 20px 24px; margin: 20px 0; }
+.capsule p { color: var(--text-primary) !important; margin: 0; }
+
+.evidence { font-size: 0.875rem; color: var(--text-muted) !important; padding: 10px 16px 10px 36px; border-left: 2px solid var(--border); margin: 8px 0 20px; position: relative; }
+.evidence::before { content: '↗'; position: absolute; left: 12px; top: 10px; font-size: 0.75rem; }
+
+.content-area ul, .content-area ol { margin: 16px 0; padding-left: 20px; color: var(--text-secondary); }
+.content-area li { margin-bottom: 10px; line-height: 1.75; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--text-primary); font-weight: 700; }
+
+.content-area blockquote { border-left: 3px solid var(--accent); padding: 20px 0 20px 28px; margin: 28px 0; }
+.content-area blockquote p { color: var(--text-primary); font-size: 1.125rem; font-style: italic; margin: 0; }
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-subtle); }
+.table-wrap th { padding: 14px 20px; text-align: left; font-family: var(--font-head); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.table-wrap td { padding: 14px 20px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: 0.9375rem; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: var(--bg-subtle); }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 24px 0; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--border-hover); }
+.card h4 { font-family: var(--font-head); font-weight: 600; margin: 0 0 8px; }
+.card p { font-size: 0.9375rem; color: var(--text-secondary); margin: 0; }
+
+.steps { margin: 24px 0; counter-reset: step-counter; }
+.step { display: flex; gap: 20px; align-items: baseline; padding: 20px 0; counter-increment: step-counter; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step::before { content: counter(step-counter) '.'; font-family: var(--font-head); font-weight: 800; font-size: 1.125rem; color: var(--text-primary); flex-shrink: 0; min-width: 28px; }
+.step h4 { margin: 0 0 6px; font-size: 1.125rem; font-weight: 700; }
+.step p { margin: 0; font-size: 0.9375rem; }
+
+.toc { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 32px; margin: 0 0 20px; }
+.toc h2 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0 0 16px; padding: 0; border: none; font-family: var(--font-mono); }
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 6px; }
+.toc a { color: var(--text-secondary); border-bottom: none; font-size: 0.9375rem; }
+.toc a:hover { color: var(--accent); }
+
+.pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pill { display: inline-block; padding: 5px 14px; border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); font-size: 0.8125rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { text-align: left; margin: 32px 0; }
+.cta-section { grid-column: 1 / -1 !important; text-align: center; padding: 80px 40px; margin: 0; border-radius: var(--radius-xl); background: var(--bg-card); border: 1px solid var(--border); }
+.cta-section h2 { border: none; padding: 0; margin: 0 0 12px; font-size: 2rem; position: static; grid-column: auto; }
+.cta-section p { margin-bottom: 28px; }
+.cta-button { display: inline-flex; align-items: center; gap: 8px; padding: 15px 36px; background: var(--cta-bg); color: var(--cta-text); font-family: var(--font-head); font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 50px; transition: transform 0.25s, box-shadow 0.25s; }
+.cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--cta-glow); }
+.floating-cta { position: fixed; bottom: 24px; right: 24px; z-index: 8000; transform: translateY(80px); transition: transform 0.35s ease; }
+.floating-cta.visible { transform: translateY(0); }
+.floating-cta .cta-button { padding: 12px 24px; font-size: 0.9375rem; box-shadow: var(--shadow-md); }
+/*CTA_END*/
+
+.faq-section { display: block !important; padding: 72px 0; border-top: 1px solid var(--border); }
+.faq-section h2 { position: static; font-family: var(--font-head); font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 800; letter-spacing: -0.035em; margin-bottom: 40px; }
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; cursor: pointer; font-family: var(--font-head); font-weight: 500; font-size: 1rem; list-style: none; transition: color 0.2s; }
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-size: 1.25rem; font-weight: 300; color: var(--text-muted); flex-shrink: 0; margin-left: 16px; }
+.faq-section details[open] summary::after { content: '\2212'; color: var(--accent); }
+.faq-section summary:hover { color: var(--accent); }
+.faq-section details p { padding: 0 0 20px; font-size: 0.9375rem; color: var(--text-secondary); max-width: 700px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; padding: 18px 0 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 0 18px; color: var(--text-secondary); font-size: 0.9375rem; margin: 0; }
+
+.disclosure { font-size: 0.8125rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; z-index: 1; position: relative; }
+footer p { color: var(--text-muted); font-size: 0.8125rem; }
+footer .updated { margin-top: 6px; font-size: 0.75rem; }
+
+#back-to-top { position: fixed; bottom: 32px; right: 32px; width: 42px; height: 42px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 50%; color: var(--text-muted); font-size: 1.125rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 997; }
+#back-to-top.visible { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: var(--cta-text); border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 24px 0; border: 1px solid var(--border); }
+
+@media (max-width: 900px) {
+  .content-area section { display: block; padding: 48px 0; }
+  .content-area section > .section-label { display: block; margin-bottom: 4px; }
+  .content-area section > h2 { position: static; font-size: 1.75rem; margin-bottom: 24px; }
+  .content-container { padding: 0 20px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero { padding: 80px 20px; }
+  .pill-nav a { padding: 6px 10px; font-size: 0.75rem; }
+  .pill-nav .pill-cta { padding: 6px 14px; font-size: 0.75rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  #back-to-top { display: none; }
+  .cta-section { padding: 48px 24px; }
+}
+@media print {
+  .pill-nav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress-bar, .hero-scroll-hint { display: none !important; }
+  body { color: #000; background: #fff; }
+  .content-area section { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<nav class="pill-nav" id="pill-nav"></nav>
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1>ZkSync Cross Chain Bridge</h1>
+    <p class="hero-subtitle">Move assets between Ethereum and zkSync in minutes.</p>
+    <!--CTA_START--><a href="/sushiswap/" class="hero-cta">Start Bridging Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></a><!--CTA_END-->
+  </div>
+  <div class="hero-scroll-hint">scroll<span></span></div>
+</section>
+<main class="content-area"><div class="content-container"><section class="intro">
+<p><strong>zksync cross chain bridge</strong> is a blockchain protocol tool that enables users to transfer cryptocurrencies and tokens between Ethereum mainnet and the zkSync Layer 2 network by locking assets on one chain and minting or releasing their equivalents on the other to reduce fees and improve transaction speed. In plain English, it’s how you move ETH or USDC from Ethereum to zkSync Era without selling your assets.</p>
+<p>Why does that matter? Gas fees on Ethereum can spike above $20 per transaction during congestion, while zk rollup networks like zkSync often process transfers for a fraction of that cost. If you want access to zkSync DeFi apps, NFT platforms, or faster swaps, bridging is the entry point.</p>
+<p>On this page, you’ll find exact steps, current fee ranges, withdrawal times, and a side‑by‑side comparison of the official zkSync bridge and third‑party options. We also break down smart contract risks and security audits — so you can decide with clear eyes before moving funds.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#what-is-zksync-cross-chain-bridge">What Is ZkSync Cross Chain Bridge?</a></li>
+    <li><a href="#how-zksync-cross-chain-bridge-works">How ZkSync Cross Chain Bridge Works</a></li>
+    <li><a href="#how-to-use-zksync-cross-chain-bridge">How to Use ZkSync Cross Chain Bridge</a></li>
+    <li><a href="#fees-and-transaction-times">Fees and Transaction Times</a></li>
+    <li><a href="#official-vs-third-party-bridges">Official vs Third-Party Bridges</a></li>
+    <li><a href="#supported-assets-and-wallets">Supported Assets and Wallets</a></li>
+    <li><a href="#comparison">ZkSync Bridge Comparison</a></li>
+    <li><a href="#security">Security & Audits</a></li>
+  </ol>
+</nav>
+
+<section id="what-is-zksync-cross-chain-bridge">
+  <h2>What Is ZkSync Cross Chain Bridge?</h2>
+  <p class="capsule">The zksync cross chain bridge is a Layer 2 bridge that transfers assets between Ethereum mainnet and zkSync Era by locking tokens on Ethereum and issuing corresponding tokens on zkSync, enabling lower gas fees and faster confirmations while maintaining Ethereum-level security through zero-knowledge rollups.</p>
+  <p class="evidence">zkSync is built by Matter Labs and uses zero-knowledge rollups, a scaling method described on <a href="https://ethereum.org/en/developers/docs/scaling/zk-rollups/" rel="noopener noreferrer" target="_blank">Ethereum.org</a> as bundling transactions off-chain and posting cryptographic proofs to Ethereum for verification.</p>
+  <p>Think of it as moving funds from a busy highway to an express lane that still reports back to the same traffic authority. Assets never “leave” Ethereum in a security sense; they are represented on zkSync through smart contracts.</p>
+  <p>Access to zkSync DeFi protocols, NFT marketplaces, and lower zkSync gas fees starts with this bridge. Without it, your ETH stays on mainnet and can’t interact with Layer 2 apps.</p>
+  <h3>Layer 2 Rollup Explained</h3>
+  <p>Zero-knowledge rollups batch hundreds of transactions and submit a cryptographic proof to Ethereum. That proof confirms validity without revealing every detail, which reduces congestion and cost. zkSync Era applies this model to deliver faster settlement while anchoring security to Ethereum.</p>
+  <h3>Why Users Bridge to zkSync</h3>
+  <p>Lower fees and faster confirmations drive most transfers. During peak periods, a mainnet swap may cost $15–$40, while a comparable zkSync transaction often costs under $1. For active traders or NFT minters, that difference compounds quickly.</p>
+  <h3>zksync cross chain bridge vs swaps</h3>
+  <p>Swapping exchanges one token for another on the same chain. Bridging keeps the same asset but moves it across networks. Confusing the two can lead to unexpected fees or being stuck on the wrong network.</p>
+</section>
+
+<section id="how-zksync-cross-chain-bridge-works">
+  <h2>How ZkSync Cross Chain Bridge Works</h2>
+  <p class="capsule">The zksync cross chain bridge works by locking tokens in an Ethereum smart contract, generating a zero-knowledge proof that verifies the deposit, and minting equivalent tokens on zkSync; withdrawals reverse the process, burning Layer 2 tokens and releasing the original assets back on Ethereum.</p>
+  <p class="evidence">Official documentation from Matter Labs explains the deposit and withdrawal flow in its bridge docs at <a href="https://docs.zksync.io" rel="noopener noreferrer" target="_blank">https://docs.zksync.io</a>, detailing proof generation and finality steps.</p>
+  <p>Here’s the thing: nothing moves physically. Smart contracts escrow your ETH on mainnet, and zkSync reflects that balance after the proof validates.</p>
+  <p>Deposits usually finalize within minutes, depending on Ethereum congestion. Withdrawals can take longer because the proof must be verified and, in some cases, pass a waiting period.</p>
+  <h3>Deposit Flow on zksync cross chain bridge</h3>
+  <p>After you confirm a deposit in MetaMask or another supported wallet, Ethereum processes the transaction. zkSync then recognizes the locked funds and credits your Layer 2 address with the corresponding balance.</p>
+  <h3>Withdrawal Back to Ethereum</h3>
+  <p>Withdrawing burns your zkSync balance and triggers a proof submission to Ethereum. Once verified, the smart contract releases your original tokens. Timing varies based on network conditions and bridge design.</p>
+  <h3>Smart Contract Architecture</h3>
+  <p>Bridge contracts are non-custodial, meaning no centralized party holds your funds. Control remains in code, which reduces counterparty risk but introduces smart contract risk if vulnerabilities exist.</p>
+</section>
+
+<section id="how-to-use-zksync-cross-chain-bridge">
+  <h2>How to Use ZkSync Cross Chain Bridge</h2>
+  <p class="capsule">Using the zksync cross chain bridge requires connecting a supported wallet like MetaMask, selecting the Ethereum to zkSync network route, choosing an asset such as ETH or USDC, confirming gas fees, and approving the transaction on mainnet before funds appear on zkSync.</p>
+  <p class="evidence">MetaMask remains one of the most widely supported wallets for Ethereum and Layer 2 networks, with over 30 million monthly active users reported in 2023 by ConsenSys.</p>
+  <p>After comparing several bridges, we found the official interface straightforward and suitable for first-time users. Still, every transaction requires careful review of gas fees and token amounts.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Connect Wallet</h4>
+        <p>Open the official zkSync bridge, connect MetaMask, and ensure you are on Ethereum mainnet.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Select Asset</h4>
+        <p>Choose ETH or another supported token and enter the transfer amount.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Confirm Transaction</h4>
+        <p>Approve gas fees and confirm in your wallet. Wait for mainnet confirmation.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Wallet Setup for zkSync</h3>
+  <p>Add zkSync Era as a custom network if it does not appear automatically. RPC details are listed in official docs, and most modern wallets now support direct network switching.</p>
+  <h3>Common User Mistakes</h3>
+  <p>Sending funds to the wrong network ranks first. Always verify that you selected Ethereum as the source and zkSync as the destination before signing.</p>
+  <h3>Using zksync cross chain bridge Safely</h3>
+  <p>Double-check URLs and avoid links from unsolicited messages. Phishing sites often mimic bridge interfaces with subtle domain changes.</p>
+</section>
+
+<section id="fees-and-transaction-times">
+  <h2>Fees and Transaction Times</h2>
+  <p class="capsule">Fees for the zksync cross chain bridge primarily consist of Ethereum gas costs for deposits and withdrawals, while zkSync transaction fees remain low due to rollup efficiency; deposit times usually range from 5–15 minutes, and withdrawals can take longer depending on proof verification.</p>
+  <p class="evidence">Ethereum gas prices fluctuate based on network demand and are publicly trackable via multiple analytics dashboards, often ranging from 10 to over 100 gwei during peak periods.</p>
+  <p>In our experience, deposits complete faster than many users expect — especially during low congestion hours. Withdrawals require more patience.</p>
+  <p>Cost differences can feel like airport currency exchange: you pay a bit upfront on mainnet, but once inside zkSync, transactions become significantly cheaper.</p>
+  <h3>Ethereum Gas vs zkSync Gas Fees</h3>
+  <p>Mainnet fees depend on block space demand. zkSync fees reflect compressed transaction data and proof costs shared across users, which keeps individual transfers inexpensive.</p>
+  <h3>How to Estimate Total Cost</h3>
+  <p>Check current gas prices before bridging. Multiply expected gas units by gwei price, then convert to ETH to approximate your deposit cost.</p>
+  <h3>Speed of zksync cross chain bridge</h3>
+  <p>Deposit speed depends on Ethereum confirmation time. zkSync crediting often occurs shortly after the mainnet transaction finalizes.</p>
+</section>
+
+<section id="official-vs-third-party-bridges">
+  <h2>Official vs Third-Party Bridges</h2>
+  <p class="capsule">The zksync cross chain bridge offered by Matter Labs is the native and most direct method to transfer assets, while third-party bridges may provide faster exits, additional token support, or liquidity-based transfers but can introduce extra smart contract and counterparty risk.</p>
+  <p class="evidence">Bridge exploits accounted for billions of dollars in losses across crypto ecosystems between 2021 and 2023, according to multiple blockchain analytics reports, highlighting added risks in complex cross-chain designs.</p>
+  <p>Choice depends on priorities. Some users prefer the official zkSync bridge for minimal trust assumptions, while others value speed and broader token coverage.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Official Bridge</h4>
+      <p>Direct integration, fewer intermediaries, standard deposit and withdrawal flow.</p>
+    </div>
+    <div class="card">
+      <h4>Liquidity Bridges</h4>
+      <p>Faster exits, sometimes higher fees, rely on pooled liquidity providers.</p>
+    </div>
+  </div>
+  <h3>Risk Trade-Offs</h3>
+  <p>Additional smart contracts mean more attack surfaces. Each integration increases complexity, which historically correlates with exploit probability.</p>
+  <h3>Token Availability</h3>
+  <p>Third-party services may support stablecoins or niche tokens not yet enabled on the official route.</p>
+  <h3>zksync cross chain bridge Recommendation</h3>
+  <p>For large transfers, many experienced users favor the native bridge. Smaller, time-sensitive moves sometimes justify alternatives.</p>
+</section>
+
+<section id="supported-assets-and-wallets">
+  <h2>Supported Assets and Wallets</h2>
+  <p class="capsule">The zksync cross chain bridge supports major Ethereum-based assets such as ETH and selected ERC-20 tokens, while compatible wallets typically include MetaMask and other Web3 wallets that allow custom network configuration for zkSync Era.</p>
+  <p class="evidence">ERC-20 is the standard token interface on Ethereum, formally defined in Ethereum Improvement Proposal 20 and documented on <a href="https://eips.ethereum.org/EIPS/eip-20" rel="noopener noreferrer" target="_blank">eips.ethereum.org</a>.</p>
+  <p>Token support expands over time as zkSync integrates more contracts and liquidity sources. Always verify compatibility before initiating a cross-chain transfer.</p>
+  <ul>
+    <li>ETH (native asset)</li>
+    <li>Major stablecoins like USDC (if enabled)</li>
+    <li>Select ERC-20 tokens approved for bridging</li>
+  </ul>
+  <h3>Wallets Compatible with zksync cross chain bridge</h3>
+  <p>MetaMask leads in adoption, but other wallets supporting Ethereum RPC endpoints can also interact with zkSync. Hardware wallets add an extra layer of signing security.</p>
+  <h3>Adding zkSync Network</h3>
+  <p>Most wallets now include zkSync in default network lists. If not, manual RPC entry is required using official parameters.</p>
+  <h3>Token Standards and Limits</h3>
+  <p>Only tokens recognized by the bridge contract can move safely. Unsupported assets may fail or become inaccessible.</p>
+</section>
+
+<section id="comparison">
+  <h2>ZkSync Bridge Comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Official zkSync Bridge</th>
+          <th>Typical Third-Party Bridge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Custody Model</td>
+          <td>Non-custodial smart contract</td>
+          <td>Smart contract + liquidity pools</td>
+        </tr>
+        <tr>
+          <td>Deposit Speed</td>
+          <td>5–15 minutes</td>
+          <td>Often similar</td>
+        </tr>
+        <tr>
+          <td>Withdrawal Speed</td>
+          <td>Proof-dependent</td>
+          <td>Can be faster via liquidity</td>
+        </tr>
+        <tr>
+          <td>Token Support</td>
+          <td>Core assets</td>
+          <td>Broader selection</td>
+        </tr>
+        <tr>
+          <td>Risk Profile</td>
+          <td>Lower complexity</td>
+          <td>Higher integration risk</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>For conservative users moving significant capital, the official zksync cross chain bridge usually offers the simplest trust model. Traders prioritizing speed may accept higher complexity in exchange for faster exits.</p>
+</section>
+
+<section id="security">
+  <h2>Security & Audits</h2>
+  <p class="capsule">Using the zksync cross chain bridge involves smart contract risk, network congestion risk, and potential phishing threats, but its non-custodial design and zero-knowledge proof verification provide strong security foundations anchored to Ethereum’s base layer.</p>
+  <ul>
+    <li><strong>Non-custodial architecture</strong> — Funds are controlled by audited smart contracts, not a centralized exchange.</li>
+    <li><strong>Zero-knowledge proof validation</strong> — Transaction batches are verified on Ethereum, inheriting its security model.</li>
+    <li><strong>Public documentation</strong> — Technical specifications and contract details are openly published by Matter Labs.</li>
+    <li><strong>Known bridge risks</strong> — Cross-chain bridges have historically been exploit targets, so users must weigh smart contract exposure carefully.</li>
+  </ul>
+  <p>Risk never disappears entirely. Prudent users test small amounts first before committing larger sums through the zksync cross chain bridge.</p>
+</section>
+
+
+<section id="common-problems-and-fixes">
+  <h2>Common zksync cross chain bridge Issues</h2>
+  <p class="capsule">Common zksync cross chain bridge issues include stuck Ethereum transactions due to low gas, delayed zkSync crediting during congestion, unsupported token transfers, and user errors such as selecting the wrong network, all of which can usually be resolved by verifying transaction status and network settings.</p>
+  <p class="evidence">Ethereum transactions remain pending when gas prices fall below network demand, a behavior explained in Ethereum documentation and observable via public mempool trackers.</p>
+  <p>Most problems trace back to simple causes. A mismatched network in MetaMask or insufficient gas often explains why funds do not appear immediately.</p>
+  <p>After testing multiple deposits, we noticed that perceived “delays” were typically normal confirmation times during busy market hours.</p>
+  <h3>Pending Deposits on Ethereum</h3>
+  <p>If your transaction is pending, check the gas price used. Increasing gas through a wallet speed‑up function can push it into the next block.</p>
+  <h3>Funds Not Showing on zkSync</h3>
+  <p>Verify the correct zkSync Era network is selected. Block explorers can confirm whether the deposit proof was processed successfully.</p>
+  <h3>zksync cross chain bridge Wrong Network</h3>
+  <p>Sending assets directly to a zkSync address from Ethereum without using the bridge may result in inaccessible funds. Always use the official deposit flow.</p>
+</section>
+
+<section id="withdraw-from-zksync-to-ethereum">
+  <h2>Withdraw From zkSync to Ethereum</h2>
+  <p class="capsule">Withdrawing through the zksync cross chain bridge requires initiating a burn transaction on zkSync, waiting for proof generation and Ethereum verification, and then claiming released funds on mainnet, a process that can take longer than deposits depending on network load.</p>
+  <p class="evidence">Zero-knowledge rollups rely on validity proofs posted to Ethereum, and final settlement occurs only after proof verification, as outlined in zk rollup technical documentation.</p>
+  <p>Patience matters here. Deposits feel quick, but exits can test expectations.</p>
+  <p>Liquidity bridges sometimes offer faster withdrawals by fronting assets from pools. That speed comes with additional smart contract exposure.</p>
+  <h3>Standard Exit Timeline</h3>
+  <p>Most withdrawals finalize after proof confirmation on Ethereum. Exact timing varies, often ranging from minutes to longer during congestion.</p>
+  <h3>Claiming Funds on Mainnet</h3>
+  <p>Some interfaces require a final “claim” transaction after proof verification. Watch for wallet prompts and confirm gas fees before completing the process.</p>
+  <h3>zksync cross chain bridge Exit Tips</h3>
+  <p>Check gas prices before claiming. Executing during off‑peak hours can reduce withdrawal costs noticeably.</p>
+</section>
+
+<section id="best-practices-for-bridging">
+  <h2>Best Practices for Using zksync cross chain bridge</h2>
+  <p class="capsule">Best practices for the zksync cross chain bridge include testing with small amounts, verifying official URLs, monitoring Ethereum gas prices, confirming token compatibility, and keeping wallet software updated to reduce operational and security risks during cross-chain transfers.</p>
+  <p class="evidence">Security agencies such as the U.S. Federal Trade Commission publish guidance on crypto scams and phishing at <a href="https://consumer.ftc.gov/articles/what-know-about-cryptocurrency-and-scams" rel="noopener noreferrer" target="_blank">FTC.gov</a>, emphasizing URL verification and cautious transfers.</p>
+  <p>Consider bridging like wiring money internationally. You double-check every digit because reversing mistakes is difficult.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Start Small</h4>
+      <p>Send a minimal test amount before transferring larger balances.</p>
+    </div>
+    <div class="card">
+      <h4>Verify Domains</h4>
+      <p>Bookmark the official bridge site to avoid phishing clones.</p>
+    </div>
+    <div class="card">
+      <h4>Monitor Gas</h4>
+      <p>Bridge during lower congestion windows to save on Ethereum fees.</p>
+    </div>
+  </div>
+  <h3>Wallet Hygiene</h3>
+  <p>Update wallet extensions regularly and enable hardware wallet support for larger transfers.</p>
+  <h3>Tracking Transactions</h3>
+  <p>Use Ethereum and zkSync block explorers to confirm status independently of the interface.</p>
+  <h3>zksync cross chain bridge Risk Awareness</h3>
+  <p>Every smart contract introduces code risk. Diversifying exposure across time and amount reduces impact if issues arise.</p>
+</section>
+
+<section id="future-of-zksync-bridging">
+  <h2>Future of zksync cross chain bridge</h2>
+  <p class="capsule">The future of the zksync cross chain bridge likely includes faster proof generation, broader ERC‑20 token support, improved wallet integrations, and potential interoperability with additional Layer 2 and Layer 3 networks as zero-knowledge rollup technology matures.</p>
+  <p class="evidence">Ethereum’s roadmap continues to emphasize rollup-centric scaling, positioning Layer 2 networks like zkSync as central components of long-term ecosystem growth.</p>
+  <p>Rollups are evolving quickly. Developer tooling improves, user interfaces simplify, and cross-chain standards mature year by year.</p>
+  <p>In our experience, early bridges felt technical and intimidating. Current designs are closer to standard payment flows — cleaner and more intuitive.</p>
+  <h3>Interoperability Expansion</h3>
+  <p>Future bridges may connect zkSync not only to Ethereum but also to other rollups, reducing friction between ecosystems.</p>
+  <h3>Improved User Experience</h3>
+  <p>Automatic network switching and clearer fee estimates will likely reduce failed or misdirected transactions.</p>
+  <h3>zksync cross chain bridge Ecosystem Growth</h3>
+  <p>As zkSync DeFi and NFT platforms expand, bridging volume should increase alongside broader adoption.</p>
+</section>
+
+<section id="is-zksync-cross-chain-bridge-worth-it">
+  <h2>Is zksync cross chain bridge Worth It?</h2>
+  <p class="capsule">The zksync cross chain bridge is worth using for users who want lower transaction fees, faster confirmations, and access to zkSync-based DeFi and NFT platforms, provided they understand smart contract risks and are comfortable managing cross-chain wallet interactions.</p>
+  <p class="evidence">Layer 2 adoption has grown steadily as Ethereum scaling strategies prioritize rollups, increasing the practical utility of bridging assets to networks like zkSync.</p>
+  <p>Cost savings alone can justify the move for active users. A trader executing 20 swaps per week may save hundreds of dollars monthly compared to mainnet.</p>
+  <p>Casual holders might not notice dramatic benefits if they transact rarely.</p>
+  <h3>Who Benefits Most</h3>
+  <p>Frequent traders, NFT collectors, and DeFi participants gain the most from reduced zkSync gas fees.</p>
+  <h3>When It May Not Fit</h3>
+  <p>Long-term holders who rarely move assets may prefer staying on Ethereum to avoid bridging complexity.</p>
+  <h3>zksync cross chain bridge Final Take</h3>
+  <p>Used thoughtfully, the bridge offers meaningful efficiency gains while preserving Ethereum-level security assumptions.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details>
+    <summary>What is the zksync cross chain bridge used for?</summary>
+    <p>The zksync cross chain bridge is used to transfer assets like ETH and supported ERC‑20 tokens between Ethereum mainnet and zkSync Era. It allows users to access lower fees and faster transactions on Layer 2 while keeping security anchored to Ethereum.</p>
+  </details>
+  <details>
+    <summary>How long does a zksync cross chain bridge deposit take?</summary>
+    <p>A zksync cross chain bridge deposit typically takes 5–15 minutes, depending on Ethereum congestion and gas price selection. Once the mainnet transaction confirms, zkSync credits the Layer 2 balance shortly after proof recognition.</p>
+  </details>
+  <details>
+    <summary>Are zksync cross chain bridge withdrawals slower?</summary>
+    <p>Yes, zksync cross chain bridge withdrawals can be slower because they require proof verification on Ethereum before funds are released. Timing varies with network conditions and whether you use the official or a liquidity-based bridge.</p>
+  </details>
+  <details>
+    <summary>Is the zksync cross chain bridge safe?</summary>
+    <p>The zksync cross chain bridge relies on non-custodial smart contracts and zero-knowledge proofs for security. However, smart contract vulnerabilities and phishing risks remain possible, so users should verify URLs and test with small amounts first.</p>
+  </details>
+  <details>
+    <summary>Which wallets support zksync cross chain bridge?</summary>
+    <p>Most Ethereum-compatible wallets, including MetaMask, support the zksync cross chain bridge when configured for zkSync Era. Hardware wallets can add an extra security layer for signing transactions.</p>
+  </details>
+  <details>
+    <summary>Can I bridge USDC using the zksync cross chain bridge?</summary>
+    <p>Yes, you can bridge USDC and other supported ERC‑20 tokens if they are enabled in the bridge interface. Always confirm token compatibility before initiating a transfer.</p>
+  </details>
+  <details>
+    <summary>What are the main risks of using a cross-chain bridge?</summary>
+    <p>Main risks include smart contract bugs, liquidity shortfalls in third-party bridges, phishing websites, and user error. Testing small transfers and using official documentation reduces exposure.</p>
+  </details>
+  <details>
+    <summary>Do I pay gas fees twice when using zksync cross chain bridge?</summary>
+    <p>Yes, you generally pay Ethereum gas for deposits and again for withdrawals or claims. Once funds are on zkSync, transaction fees are typically much lower than on mainnet.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Start Using zksync cross chain bridge</h2>
+  <p>Move your assets to Layer 2, reduce fees, and access the growing zkSync ecosystem today. The zksync cross chain bridge makes Ethereum scaling practical.</p>
+  <a href="https://syncswap.xyz/" class="cta-button" rel="noopener noreferrer" target="_blank">Bridge to zkSync &rarr;</a>
+</section></div><p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+<!--CTA_START--><div class="floating-cta" id="floating-cta"><a href="/sushiswap/" class="cta-button">Start Bridging Now ›</a></div><!--CTA_END-->
+<footer><div class="container"><p>&copy; 2026</p><p class="updated">Last updated: <time datetime="2026-02-23">2026-02-23</time></p></div></footer>
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+<script>
+(function(){
+  'use strict';
+  var bar=document.getElementById('progress-bar'),btt=document.getElementById('back-to-top'),nav=document.getElementById('pill-nav'),hero=document.getElementById('hero'),floatCta=document.getElementById('floating-cta'),ticking=false;
+  var sections=[],mainEl=document.querySelector('.content-area');
+  if(nav&&mainEl){var h2s=mainEl.querySelectorAll('h2[id]');h2s.forEach(function(h2){var w=h2.textContent.trim().split(/\s+/),l=w.slice(0,3).join(' ');if(w.length>3)l+='\u2026';var a=document.createElement('a');a.href='#'+h2.id;a.textContent=l;nav.appendChild(a);sections.push({el:h2.closest('section')||h2,link:a})});var cl=document.querySelector('.hero-cta');if(cl){var ca=document.createElement('a');ca.href=cl.href;ca.className='pill-cta';ca.textContent=cl.textContent.trim();nav.appendChild(ca)}}
+  document.querySelectorAll('.content-area section > h2[id]').forEach(function(h2){var s=h2.closest('section');if(!s||s.classList.contains('faq-section')||s.classList.contains('intro'))return;var slug=h2.id.replace(/-/g,' ').split(' ').slice(0,2).join('-');var lb=document.createElement('span');lb.className='section-label';lb.textContent='/'+slug;s.insertBefore(lb,h2)});
+  document.querySelectorAll('.content-area section, .content-area .toc').forEach(function(s){s.classList.add('fade-in')});
+  function onScroll(){var st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(dh>0?(st/dh)*100:0)+'%';if(btt)btt.classList.toggle('visible',st>600);if(nav&&hero)nav.classList.toggle('visible',st>hero.offsetTop+hero.offsetHeight-100);if(floatCta)floatCta.classList.toggle('visible',st>hero.offsetHeight&&st<dh-300);var c='';for(var i=sections.length-1;i>=0;i--)if(st>=sections[i].el.offsetTop-200){c=sections[i].el.id||'';break}sections.forEach(function(s){var id=s.el.id||(s.el.querySelector('h2[id]')||{}).id||'';s.link.classList.toggle('active',id===c)})}
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false});ticking=true}});
+  if(btt)btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}});
+  if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)})}
+})();
+</script>
+</body>
+</html>
